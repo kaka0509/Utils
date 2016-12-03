@@ -1,2 +1,2 @@
 # hello-world
-Hi ,bro.This is my first repository.I'd like to learn about github for a long time.I love Python & java .
+This is my first repository.I'd like to use github to learn Java better and find a new job in next Year.
