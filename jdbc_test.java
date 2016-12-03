@@ -1,17 +1,15 @@
-package test;
-
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Connection;
 import java.sql.Statement;
 
-public class test {
-	// JDBC Çı¶¯Æ÷Ãû³ÆºÍÊı¾İ¿âµØÖ·
+public class jdbc_test {
+	// JDBC é©±åŠ¨å™¨åç§°å’Œæ•°æ®åº“åœ°å€
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	// Êı¾İ¿âµÄÃû³ÆÎª EXAMPLE
+	// æ•°æ®åº“çš„åç§°ä¸º EXAMPLE
 	static final String DB_URL = "jdbc:mysql://localhost/EXAMPLE";
 
-	// ´´½¨Êı¾İ¿âÓÃ»§ÃûºÍÃÜÂë
+	// åˆ›å»ºæ•°æ®åº“ç”¨æˆ·åå’Œå¯†ç 
 	static final String USER = "root";
 	static final String PASS = "root";
 
@@ -19,43 +17,43 @@ public class test {
 		Connection conn = null;
 		Statement stmt = null;
 		try {
-			// ×¢²áJDBCÇı¶¯
+			// æ³¨å†ŒJDBCé©±åŠ¨
 			Class.forName("com.mysql.jdbc.Driver");
 
-			// ´ò¿ªÁ¬½Ó
-			System.out.println("ÕıÔÚÁ¬½Óµ½Êı¾İ¿â¡­¡­");
+			// æ‰“å¼€è¿æ¥
+			System.out.println("æ­£åœ¨è¿æ¥åˆ°æ•°æ®åº“â€¦â€¦");
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);
 
-			// Ö´ĞĞ²éÑ¯
-			System.out.println("´´½¨²éÑ¯Óï¾ä¡­¡­");
+			// æ‰§è¡ŒæŸ¥è¯¢
+			System.out.println("åˆ›å»ºæŸ¥è¯¢è¯­å¥â€¦â€¦");
 			stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
 					ResultSet.CONCUR_UPDATABLE);
 			String sql = "SELECT id, name, age FROM Students";
 			ResultSet rs = stmt.executeQuery(sql);
 
-			// µÃµ½ºÍ´¦Àí½á¹û¼¯
+			// å¾—åˆ°å’Œå¤„ç†ç»“æœé›†
 			while (rs.next()) {
-				// ¼ìË÷
+				// æ£€ç´¢
 				int id = rs.getInt("id");
 				int age = rs.getInt("age");
 				String name = rs.getString("name");
 
-				// ÏÔÊ¾
+				// æ˜¾ç¤º
 				System.out.print("ID: " + id);
 				System.out.print(", Age: " + age);
 				System.out.print(", Name: " + name);
 				System.out.println();
 			}
 
-			// ½á¹û¼¯ÖĞ²åÈëĞÂĞĞ
+			// ç»“æœé›†ä¸­æ’å…¥æ–°è¡Œ
 			rs.moveToInsertRow();
 			rs.updateInt("id", 5);
 			rs.updateString("name", "John");
 			rs.updateInt("age", 21);
-			// ¸üĞÂÊı¾İ¿â
+			// æ›´æ–°æ•°æ®åº“
 			rs.insertRow();
 
-			// ÇåÀíÏÖ³¡
+			// æ¸…ç†ç°åœº
 			rs.close();
 			stmt.close();
 			conn.close();
@@ -63,7 +61,7 @@ public class test {
 			e.printStackTrace();
 
 		} finally {
-			// ¼ì²é¹Ø±Õ×ÊÔ´
+			// æ£€æŸ¥å…³é—­èµ„æº
 			try {
 				if (stmt != null)
 					stmt.close();
@@ -77,6 +75,6 @@ public class test {
 				e2.printStackTrace();
 			}
 		}
-		System.out.println("²éÑ¯½áÊø£¬ÔÙ¼û!");
+		System.out.println("æŸ¥è¯¢ç»“æŸï¼Œå†è§!");
 	}
 }
