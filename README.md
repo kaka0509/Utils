@@ -1,2 +1,3 @@
 # hello-world
-This is my first repository.I'd like to use github to learn Java better and find a new job in next Year.
+记录一些常用的代码。
+1. jdbc_test ：用JDBC连接Mysql数据库的代码。
