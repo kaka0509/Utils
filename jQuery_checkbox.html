@@ -1,0 +1,57 @@
+#遍历所有选中的checkbox 并拼装成字符串
+<html>
+<head>
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+     $("#btn").click(function(){
+      
+                var vIds = "";
+
+                $("input:checked").each(function() {
+
+                    vIds += $(this).attr('id') + ",";
+
+                });
+
+                if (vIds.length > 0) {
+
+                    vIds = vIds.substring(0, vIds.length - 1);
+
+                }
+
+                $("#result").text(vIds);
+
+
+    });
+});
+
+                
+
+</script>
+</head>
+
+<body>
+    <input type="checkbox" id="1001"/>
+
+    <label for="1">选项一</label>
+
+    <br/>
+
+    <input type="checkbox" id="1002"/>
+
+    <label for="2">选项二</label>
+
+    <br />
+
+    <input type="checkbox" id="1003"/>
+
+    <label for="3">选项三</label>
+
+    <br/>
+    <button id="btn">我是按钮</button><br/>
+    <span id="result">用于显示结果</span>
+
+
+</body>
+</html> 
