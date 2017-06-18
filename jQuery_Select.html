@@ -1,0 +1,35 @@
+#jQuery 获取select下拉框的数据
+<html>
+<head>
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+     $("#btn").click(function(){
+
+     var $selected = $("#select1").find("option:selected");//所选中的下拉框选项  
+     var text= $selected.text();//所选中的文本（显示在页面的文本）  
+     var val = $selected.val();//所选中的值（一般是提交给后台的值）  
+                 
+     alert("选中的text:" + text + " ,value:" + val);  
+     $("#result").text("选中的text:" + text + " ,value:" + val);
+
+    });
+});
+
+                
+
+</script>
+</head>
+
+<body>
+<label> select下拉框测试</label> <br/>  
+       <select id="select1">  
+         <option value ="1">Volvo</option>  
+         <option value ="2">Saab</option>  
+         <option value="3">Opel</option>  
+         <option value="4">Audi</option>  
+       </select><br/>  
+<button id="btn">我是按钮</button><br/>
+<span id="result">用于显示结果</span>
+</body>
+</html> 
